@@ -17,6 +17,10 @@ def load_data_porsexo(sexo):
 
 datos = load_data()
 selected_sex = st.selectbox('Selecciona sexo', datos['sex'].unique())
+selected_otro = st.selectbox('Selecciona otro', ['a', 'b', 'c'])
+st.write(selected_sex)
+st.write(selected_otro)
+
 btnFiltrarSexo = st.button('Filtrar por sexo')
 
 
@@ -25,3 +29,13 @@ if (btnFiltrarSexo):
     num_renglones = df_sexo.shape[0]
     st.write(f'Total nombres: {num_renglones}')
     st.dataframe(df_sexo)
+
+btnFiltrarSexo2 = st.button('Filtrar por sexo 2')
+
+if (btnFiltrarSexo2):
+    df_sexo2 = datos[datos['sex'] == selected_sex]
+    num_renglones = df_sexo2.shape[0]
+    st.write(f'Total nombres 2: {num_renglones}')
+    st.dataframe(df_sexo2)
+
+print('x', end='')
